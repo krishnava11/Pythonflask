@@ -32,8 +32,8 @@ node {
     stage('Deploy Pod to Kubernetes') {
         /* This builds the actual image */
 	
-	sh "/root/bin/kubectl deploy -f flasktestapp.yaml"
-	sh "/root/bin/kubectl get pods"
+	sh "/root/bin/kubectl apply -f flasktestapp.yaml"
+	sh "/root/bin/kubectl get service"
         /*sh "docker build -t manoj96/app:${currentBuild.number} ."
         app = docker.build("anandr72/nodeapp")*/
     }
