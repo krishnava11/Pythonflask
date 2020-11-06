@@ -2,30 +2,30 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata: 
-  name: partrecoapi-test-deployment
+  name: flasktestapp-deployment
 spec: 
   selector: 
     matchLabels: 
-      app: partrecoapi-test
+      app: flasktestapp
   replicas: 1
   template:
     metadata: 
       labels: 
-        app: partrecoapi-test
+        app: flasktestapp
     spec: 
       containers: 
-      - name: partrecoapi-test
-        image: ebdevseracrpartrecoeng.azurecr.io/partrecoapi:#{Build.BuildId}#
+      - name: flasktestapp
+        image: manoj96/app:latest
         ports: 
         - containerPort: 8000
 --- 
 kind: Service 
 apiVersion: v1 
 metadata: 
-  name: partrecoapi-test
+  name: flasktestapp
 spec: 
   selector:
-    app: partrecoapi-test
+    app: flasktestapp
   ports: 
   - port: 80 
     targetPort: 8000
