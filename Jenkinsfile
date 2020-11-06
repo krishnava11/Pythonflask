@@ -29,4 +29,11 @@ node {
 	}
                 echo "Trying to Push Docker Build to DockerHub"
     }
+    stage('Deploy Pod to Kubernetes') {
+        /* This builds the actual image */
+	sh "kubectl deploy flasktestapp.yaml"
+	sh "kubectl get pods"
+        /*sh "docker build -t manoj96/app:${currentBuild.number} ."
+        app = docker.build("anandr72/nodeapp")*/
+    }
 }
