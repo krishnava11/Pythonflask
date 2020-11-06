@@ -31,6 +31,7 @@ node {
     }
     stage('Deploy Pod to Kubernetes') {
         /* This builds the actual image */
+	kubernetesDeploy(configs: "flaskapptest.yaml", kubeconfigId: "Kubecrenetes")
 	sh "sudo su -"
 	sh "kubectl apply -f flasktestapp.yaml"
 	sh "kubectl get service"
