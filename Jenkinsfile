@@ -29,5 +29,12 @@ node {
 	}
                 echo "Trying to Push Docker Build to DockerHub"
     }
+    stage('Kubernets Deployment') {
+        /* 
+			You would need to first register with DockerHub before you can push images to your account
+		*/
+        sh "kubectl apply -f flasktestapp.yaml"
+	sh "kubectl get services"
+    }
 
 }
