@@ -29,7 +29,7 @@ node {
 	}
                 echo "Trying to Push Docker Build to DockerHub"
     }
-    stage('Deploy Pod to Kubernetes') {
+    /*stage('Deploy Pod to Kubernetes') {
         /* This builds the actual image */
 	/*kubernetesDeploy(configs: "flasktestapp.yaml", kubeconfigId: "Kubecrenetes")
 	sh "sudo su -"*/
@@ -39,5 +39,5 @@ node {
 	sh "/usr/local/bin/kubectl get service"
         /*sh "docker build -t manoj96/app:${currentBuild.number} ."
         app = docker.build("anandr72/nodeapp")*/
-    }
+    }*/
 }
